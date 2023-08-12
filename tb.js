@@ -12,18 +12,6 @@ const client = mqtt.connect(brokerUrl, {
   password: '' // Leave empty for ThingsBoard
 });
 
-// Subscribe to Telemetry Topic
-// client.on('connect', () => {
-//   console.log('Connected to MQTT broker');
-//   client.subscribe('v1/devices/me/attributes/response/+')
-// });
-
-// // Handle Received Telemetry Data
-// client.on('message', (topic, message) => {
-//   console.log('Received data:', message.toString());
-//   // Here you can parse and process the received data as needed
-// });
-
 client.on('connect', function () {
   console.log('connected')
   client.subscribe('v1/devices/me/telemetry')
